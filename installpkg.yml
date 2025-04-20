@@ -1,0 +1,13 @@
+---
+- name: inatall any package using variable
+  hosts: all
+  become: true
+  -a: tree
+  -b: present
+  -c: no
+  tasks:
+    -name: install tree 
+    ansible.builtin.apt :  
+      name: "{{ a }}"
+      state: "{{ b }}"
+      update_cache: "{{ c }}"
